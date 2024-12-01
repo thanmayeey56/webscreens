@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cohorts</title>
+    <link rel="stylesheet" href="a-cohort.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-logo">
+                <img src="images\logo.png" alt="YANC Logo">
+            </div>
+            <div class="header-icons">
+                <button class="icon-button">
+                <i class="fas fa-bell icon"></i> 
+                </button>
+                <button class="icon-button">
+                <i class="fas fa-user icon"></i> 
+                </button>
+                <button class="logout-button">Logout</button>
+            </div>
+       
+        <div class="dropdown">
+            <button class="hamburger-icon" onclick="toggleDropdown()">&#9776;</button>
+            <div class="dropdown-content" id="dropdownMenu">
+                <a href="#" class="active">Cohorts</a>
+                <a href="#">Regions</a>
+                <a href="#">Members</a>
+                <a href="#">Events</a>
+            </div>
+        </div>
+    </header>
+
+        <!-- Main content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <nav>
+                    <ul>
+                        <li><a href="regions.html">Regions</a></li>
+                        <li><a href="#" class="active">Cohorts</a></li>
+                        <li><a href="members.html">Members</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main>
+                <h1>Cohorts</h1>
+                <div class="content">
+                    <!-- Cohorts list -->
+                    <section class="region-list">
+                        <h2>Cohorts List</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Cohort Name</th>
+                                    <th>Region</th>
+                                    <th>Country</th>
+                                    <th>Participants</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cohort A</td>
+                                    <td>Region 1</td>
+                                    <td>Country X</td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <td>Cohort B</td>
+                                    <td>Region 2</td>
+                                    <td>Country Y</td>
+                                    <td>25</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <!-- Add/Edit Cohort -->
+                    <section class="region-forms">
+                        <div class="add-region">
+                            <h2>Add Cohort</h2>
+                            <form>
+                                <input type="text" placeholder="Cohort Name" required>
+                                <select required>
+                                    <option value="">Select Region</option>
+                                    <option value="region1">Region 1</option>
+                                    <option value="region2">Region 2</option>
+                                </select>
+                                <input type="text" placeholder="State" required>
+                                <input type="text" placeholder="Country" required>
+                                <input type="number" placeholder="Number of Participants" required>
+                                <button type="submit">Add</button>
+                            </form>
+                        </div>
+                        <div class="edit-region">
+                            <h2>Edit Cohort</h2>
+                            <form>
+                                <select required>
+                                    <option value="">Select Cohort</option>
+                                    <option value="cohortA">Cohort A</option>
+                                    <option value="cohortB">Cohort B</option>
+                                </select>
+                                <input type="text" placeholder="Cohort Name" required>
+                                <input type="text" placeholder="State" required>
+                                <input type="text" placeholder="Country" required>
+                                <input type="number" placeholder="Number of Participants" required>
+                                <button type="submit">Make Changes</button>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script>
+        function toggleDropdown() {
+            const dropdownMenu = document.getElementById("dropdownMenu");
+            dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="aprofile.css">
+</head>
+<body>
+  <section class="admin-dashboard">
+    <header class="top-nav">
+      <nav class="nav-content">
+        <div class="logo-container">
+          <img src="images/logo.png" alt="Company Logo" class="logo">
+        </div>
+        
+        <!-- Hamburger Icon for small screens -->
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          &#9776; <!-- Hamburger symbol -->
+        </div>
+
+        <div class="nav-menu">
+          <div class="menu-items">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Region</a>
+            <a href="#" class="nav-link">Cohort</a>
+            <a href="#" class="nav-link">Member</a>
+            <a href="#" class="nav-link">Events</a>
+          </div>
+          <button class="logout-btn">Logout</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <div class="left-column">
+        <section class="profile-section">
+          <article class="profile-card">
+            <div class="profile-image-container">
+              <img src="images/blank-profile-picture-973460_1280.png" alt="Profile photo" class="profile-image">
+              <h2 class="profile-name">Thanmayee P</h2>
+            </div>
+            <div class="profile-details">
+              <p class="detail-item">Admin</p>
+              <p class="detail-item">Cohort</p>
+              <p class="detail-item">Region</p>
+              <p class="detail-item">Contact</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="upcoming-events-section">
+          <h3>Upcoming Events</h3>
+          <div class="events-list">
+            <div class="event-item">
+              <h4 class="event-title">Event 1</h4>
+              <p class="event-date">Date: December 15, 2024</p>
+              <p class="event-description">Description for Event 1.</p>
+            </div>
+            <div class="event-item">
+              <h4 class="event-title">Event 2</h4>
+              <p class="event-date">Date: January 10, 2025</p>
+              <p class="event-description">Description for Event 2.</p>
+            </div>
+            <div class="event-item">
+              <h4 class="event-title">Event 3</h4>
+              <p class="event-date">Date: February 20, 2025</p>
+              <p class="event-description">Description for Event 3.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="notifications-section">
+          <h3>Notifications</h3>
+          <div class="notification-item">Notification 1</div>
+          <div class="notification-item">Notification 2</div>
+        </section>
+      </div>
+
+      <div class="right-column">
+        <section class="admin-details-section">
+          <h3>Admin Details</h3>
+          <div class="admin-details-fields">
+              <div class="detail-box">
+                  <label>Position</label>
+                  <p class="detail-text">Admin</p>  
+              </div>
+              <div class="detail-box">
+                  <label>Cohort</label>
+                  <p class="detail-text">Cohort 1</p>  
+              </div>
+              <div class="detail-box">
+                  <label>Admin ID</label>
+                  <p class="detail-text">A12345</p>  
+              </div>
+              <div class="detail-box">
+                  <label>Region</label>
+                  <p class="detail-text">North</p>  
+              </div>
+          </div>
+        </section>
+
+        <section class="about-section">
+          <h3>About</h3>
+          <div class="about-box">
+            <h4>Skills</h4>
+            <div class="scrollable-list">
+              <ul>
+                <li>Leadership</li>
+                <li>Project Management</li>
+                <li>Event Coordination</li>
+                <li>Communication</li>
+                <li>Time Management</li>
+                <li>Problem Solving</li>
+                <li>Teamwork</li>
+                <li>Strategic Planning</li>
+                <li>Public Speaking</li>
+                <li>Negotiation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="about-box">
+            <h4>Interests</h4>
+            <div class="scrollable-list">
+              <ul>
+                <li>Technology</li>
+                <li>Travel</li>
+                <li>Photography</li>
+                <li>Music</li>
+                <li>Reading</li>
+                <li>Cooking</li>
+                <li>Fitness</li>
+                <li>Gaming</li>
+                <li>Fashion</li>
+                <li>Sports</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </section>
+
+  <script>
+    // JavaScript to toggle the menu
+    function toggleMenu() {
+        const navMenu = document.querySelector('.nav-menu');
+        navMenu.classList.toggle('active'); // Toggle the active class to show/hide the menu
+    }
+  </script>
+</body>
+</html>
