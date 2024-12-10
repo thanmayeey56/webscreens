@@ -1,4 +1,4 @@
-﻿body {
+body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
 }
@@ -78,8 +78,7 @@
     display: flex;
     margin-top: 100px; 
     height: calc(100vh - 100px);
-    overflow: auto;
-   
+    overflow: hidden;
 }
 
 .sidebar {
@@ -160,7 +159,42 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 10px;
+   
 }
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%; 
+}
+
+form input,
+form select,
+form label {
+    width: 100%; 
+    box-sizing: border-box; 
+    font-size: 14px; 
+}
+
+form input,
+form select {
+    padding: 10px;
+    border: 1px solid #a98ac9;
+    border-radius: 5px;
+    height: 40px; 
+    background-color: #fff; 
+}
+
+form input[type="radio"] {
+    width: auto; 
+    height: auto;
+    margin-right: 5px; 
+}
+
+form label {
+    display: flex;
+    align-items: center;
+    gap: 10px; }
 
 .rounded-select {
     padding: 12px;
@@ -169,12 +203,17 @@ h1 {
 }
 
 .add-event-button {
-    padding: 5px; /* Reduced padding for smaller button */
+    padding: 10px 15px;
     background-color: #a98ac9;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    height: 40px; 
+    width: auto; 
+    align-self :center; 
 }
 
 .add-event-button:hover {
