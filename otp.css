@@ -105,10 +105,11 @@
     margin-left: 80px;
 }
 
-.login-logo {
+.login-box .login-logo {
+    display: block;
+    margin: 0 auto;
     width: 150px;
     height: auto;
-    margin-bottom: 15px;
 }
 
 .otp-container {
