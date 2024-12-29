@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="header-container">
         <!-- Header -->
         <header class="header">
             <div class="header-logo">
@@ -17,14 +17,13 @@
             </div>
             <div class="header-icons">
                 <button class="icon-button">
-                <i class="fas fa-bell icon"></i> 
+                    <i class="fas fa-bell icon"></i>
                 </button>
                 <button class="icon-button">
-                <i class="fas fa-user icon"></i> 
+                    <i class="fas fa-user icon"></i>
                 </button>
                 <button class="logout-button">Logout</button>
             </div>
-
             <!-- Hamburger Icon for mobile screens -->
             <div class="dropdown">
                 <button class="hamburger-icon" onclick="toggleDropdown()">&#9776;</button>
@@ -50,52 +49,86 @@
                 </nav>
             </aside>
 
-            <!-- Main area for regions table and forms -->
+            
             <main>
                 <h1>Regions</h1>
+                <div class="add-btn-container">
+                    <button class="add-btn" onclick="toggleAddRegionForm()">Add Region</button>
+                </div>
+                <div id="addModal" class="add-modal">
+                    <div class="add-modal-content">
+                        <span class="close-btn" onclick="toggleAddRegionForm()">&times;</span>
+                        <h2>Add Region</h2>
+                        <form id="addRegionForm">
+                            <input type="text" placeholder="Region Name" required>
+                            <input type="text" placeholder="Country" required>
+                            <input type="text" placeholder="Code" required>
+                            <input type="text" placeholder="Contact Info" required>
+                            <button type="submit">Add Region</button>
+                        </form>
+                    </div>
+                </div>
                 <div class="content">
                     <!-- Region list -->
-                    <section class="region-list">
+                    <section class="list">
                         <table>
                             <thead>
                                 <tr>
                                     <th>Region</th>
                                     <th>Country</th>
                                     <th>Code</th>
+                                    <th>Contact</th>
+                                    <th>Actions</th> <!-- Added Actions column for the pencil icon -->
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Region</td>
-                                    <td>Text</td>
-                                    <td>Text</td>
+                                    <td>Region 1</td>
+                                    <td>Country 1</td>
+                                    <td>Code 1</td>
+                                    <td>Contact 1</td>
+                                    <td><button class="edit-btn" onclick="toggleEditForm('editForm1', this)">&#9998;</button></td> <!-- Edit pencil icon -->
                                 </tr>
+                                <tr class="edit-form-row" id="editForm1" style="display: none;">
+                                    <td colspan="5">
+                                        <div class="edit-form">
+                                            <h2>Edit Region 1</h2>
+                                            <form>
+                                                <input type="text" placeholder="Region Name" value="Region 1" required>
+                                                <input type="text" placeholder="Country" value="Country 1" required>
+                                                <input type="text" placeholder="Code" value="Code 1" required>
+                                                <input type="text" placeholder="Contact Info" value="Contact 1" required>
+                                                <button type="submit">Save Changes</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Region 2</td>
+                                    <td>Country 2</td>
+                                    <td>Code 2</td>
+                                    <td>Contact 2</td>
+                                    <td><button class="edit-btn" onclick="toggleEditForm('editForm2', this)">&#9998;</button></td> <!-- Edit pencil icon -->
+                                </tr>
+                                <tr class="edit-form-row" id="editForm2" style="display: none;">
+                                    <td colspan="5">
+                                        <div class="edit-form">
+                                            <h2>Edit Region 2</h2>
+                                            <form>
+                                                <input type="text" placeholder="Region Name" value="Region 2" required>
+                                                <input type="text" placeholder="Country" value="Country 2" required>
+                                                <input type="text" placeholder="Code" value="Code 2" required>
+                                                <input type="text" placeholder="Contact Info" value="Contact 2" required>
+                                                <button type="submit">Save Changes</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- More rows as needed -->
                             </tbody>
                         </table>
-                    </section>
-
-                    <!-- Add/Edit Region Forms -->
-                    <section class="region-forms">
-                        <div class="add-region">
-                            <h2>Add Region</h2>
-                            <form>
-                                <input type="text" placeholder="Name" required>
-                                <input type="text" placeholder="City" required>
-                                <input type="text" placeholder="Code" required>
-                                <input type="text" placeholder="State" required>
-                                <input type="text" placeholder="Country" required>
-                                <button type="submit">Add</button>
-                            </form>
-                        </div>
-                        <div class="edit-region">
-                            <h2>Edit Region</h2>
-                            <form>
-                                <select required>
-                                    <option value="">Select region</option>
-                                </select>
-                                <button type="submit">Make Changes</button>
-                            </form>
-                        </div>
                     </section>
                 </div>
             </main>
@@ -106,6 +139,31 @@
         function toggleDropdown() {
             const dropdownMenu = document.getElementById("dropdownMenu");
             dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+        }
+        function toggleEditForm(formId, button) {
+            const editForm = document.getElementById(formId);
+            // Toggle visibility of the clicked form
+            if (editForm.style.display === "none" || editForm.style.display === "") {
+                editForm.style.display = "table-row"; // Make the edit form visible under the row
+            } else {
+                editForm.style.display = "none"; // Hide the form again
+            }
+        }
+        function toggleAddRegionForm() {
+            const modal = document.getElementById("addModal");
+            if (modal.style.display === "block") {
+                modal.style.display = "none"; // Hide modal if already shown
+            } else {
+                modal.style.display = "block"; // Show modal if it's hidden
+            }
+        }
+
+        // Close modal if clicked outside
+        window.onclick = function(event) {
+            const modal = document.getElementById("addModal");
+            if (event.target === modal) {
+                modal.style.display = "none"; // Close modal if clicked outside
+            }
         }
     </script>
 </body>
