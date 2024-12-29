@@ -1,14 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cohorts</title>
-    <link rel="stylesheet" href="a-cohort.css">
+    <title>Regions</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="a-region.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="container">
+    <div class="header-container">
         <!-- Header -->
         <header class="header">
             <div class="header-logo">
@@ -16,112 +17,153 @@
             </div>
             <div class="header-icons">
                 <button class="icon-button">
-                <i class="fas fa-bell icon"></i> 
+                    <i class="fas fa-bell icon"></i>
                 </button>
                 <button class="icon-button">
-                <i class="fas fa-user icon"></i> 
+                    <i class="fas fa-user icon"></i>
                 </button>
                 <button class="logout-button">Logout</button>
             </div>
-       
-        <div class="dropdown">
-            <button class="hamburger-icon" onclick="toggleDropdown()">&#9776;</button>
-            <div class="dropdown-content" id="dropdownMenu">
-                <a href="#" class="active">Cohorts</a>
-                <a href="#">Regions</a>
-                <a href="#">Members</a>
-                <a href="#">Events</a>
+            <!-- Hamburger Icon for mobile screens -->
+            <div class="dropdown">
+                <button class="hamburger-icon" onclick="toggleDropdown()">&#9776;</button>
+                <div class="dropdown-content" id="dropdownMenu">
+                    <a href="#" class="active">Regions</a>
+                    <a href="#">Cohorts</a>
+                    <a href="#">Members</a>
+                    <a href="#">Events</a>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-        <!-- Main content -->
         <div class="main-content">
-            <!-- Sidebar -->
+            <!-- Sidebar for larger screens only -->
             <aside class="sidebar">
                 <nav>
                     <ul>
-                        <li><a href="regions.html">Regions</a></li>
+                        <li><a href="#">Regions</a></li>
                         <li><a href="#" class="active">Cohorts</a></li>
-                        <li><a href="members.html">Members</a></li>
-                        <li><a href="events.html">Events</a></li>
+                        <li><a href="#">Members</a></li>
+                        <li><a href="#">Events</a></li>
                     </ul>
                 </nav>
             </aside>
 
+            
             <main>
                 <h1>Cohorts</h1>
+                <div class="add-btn-container">
+                    <button class="add-btn" onclick="toggleAddCohortForm()">Add Cohort</button>
+                </div>
+                <div id="addModal" class="add-modal">
+                    <div class="add-modal-content">
+                        <span class="close-btn" onclick="toggleAddCohortForm()">&times;</span>
+                        <h2>Add Cohort</h2>
+                        <form id="addCohortForm">
+                            <input type="text" placeholder="Cohort Name" required>
+                            <input type="text" placeholder="Region" required>
+                            <input type="text" placeholder="State" required>
+                            <input type="text" placeholder="Country" required>
+                            <button type="submit">Add Cohort</button>
+                        </form>
+                    </div>
+                </div>
                 <div class="content">
-                    <!-- Cohorts list -->
-                    <section class="region-list">
-                        <h2>Cohorts List</h2>
+                    <!-- Cohort list -->
+                    <section class="list">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Cohort Name</th>
+                                    <th>Cohort</th>
                                     <th>Region</th>
+                                    <th>State</th>
                                     <th>Country</th>
-                                    <th>Participants</th>
+                                    <th>Actions</th> <!-- Added Actions column for the pencil icon -->
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Cohort A</td>
+                                    <td>cohort 1</td>
                                     <td>Region 1</td>
-                                    <td>Country X</td>
-                                    <td>30</td>
+                                    <td>State 1</td>
+                                    <td>Country 1</td>
+                                    <td><button class="edit-btn" onclick="toggleEditForm('editForm1', this)">&#9998;</button></td> <!-- Edit pencil icon -->
                                 </tr>
+                                <tr class="edit-form-row" id="editForm1" style="display: none;">
+                                    <td colspan="5">
+                                        <div class="edit-form">
+                                            <h2>Edit Cohort 1</h2>
+                                            <form>
+                                                <input type="text" placeholder="Cohort" value="Cohort 1" required>
+                                                <input type="text" placeholder="Region" value="Region 1" required>
+                                                <input type="text" placeholder="State" value="State 1" required>
+                                                <input type="text" placeholder="Country" value="Country 1" required>
+                                                <button type="submit">Save Changes</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+
                                 <tr>
-                                    <td>Cohort B</td>
                                     <td>Region 2</td>
-                                    <td>Country Y</td>
-                                    <td>25</td>
+                                    <td>Country 2</td>
+                                    <td>Code 2</td>
+                                    <td>Contact 2</td>
+                                    <td><button class="edit-btn" onclick="toggleEditForm('editForm2', this)">&#9998;</button></td> <!-- Edit pencil icon -->
                                 </tr>
+                                <tr class="edit-form-row" id="editForm2" style="display: none;">
+                                    <td colspan="5">
+                                        <div class="edit-form">
+                                            <h2>Edit Region 2</h2>
+                                            <form>
+                                                <input type="text" placeholder="Cohort" value="Cohort 2" required>
+                                                <input type="text" placeholder="Region" value="Region 2" required>
+                                                <input type="text" placeholder="State" value="State" required>
+                                                <input type="text" placeholder="Country " value="Country 2" required>
+                                                <button type="submit">Save Changes</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <!-- More rows as needed -->
                             </tbody>
                         </table>
-                    </section>
-
-                    <!-- Add/Edit Cohort -->
-                    <section class="region-forms">
-                        <div class="add-region">
-                            <h2>Add Cohort</h2>
-                            <form>
-                                <input type="text" placeholder="Cohort Name" required>
-                                <select required>
-                                    <option value="">Select Region</option>
-                                    <option value="region1">Region 1</option>
-                                    <option value="region2">Region 2</option>
-                                </select>
-                                <input type="text" placeholder="State" required>
-                                <input type="text" placeholder="Country" required>
-                                <input type="number" placeholder="Number of Participants" required>
-                                <button type="submit">Add</button>
-                            </form>
-                        </div>
-                        <div class="edit-region">
-                            <h2>Edit Cohort</h2>
-                            <form>
-                                <select required>
-                                    <option value="">Select Cohort</option>
-                                    <option value="cohortA">Cohort A</option>
-                                    <option value="cohortB">Cohort B</option>
-                                </select>
-                                <input type="text" placeholder="Cohort Name" required>
-                                <input type="text" placeholder="State" required>
-                                <input type="text" placeholder="Country" required>
-                                <input type="number" placeholder="Number of Participants" required>
-                                <button type="submit">Make Changes</button>
-                            </form>
-                        </div>
                     </section>
                 </div>
             </main>
         </div>
     </div>
+
     <script>
         function toggleDropdown() {
             const dropdownMenu = document.getElementById("dropdownMenu");
             dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+        }
+        function toggleEditForm(formId, button) {
+            const editForm = document.getElementById(formId);
+            // Toggle visibility of the clicked form
+            if (editForm.style.display === "none" || editForm.style.display === "") {
+                editForm.style.display = "table-row"; // Make the edit form visible under the row
+            } else {
+                editForm.style.display = "none"; // Hide the form again
+            }
+        }
+        function toggleAddCohortForm() {
+            const modal = document.getElementById("addModal");
+            if (modal.style.display === "block") {
+                modal.style.display = "none"; // Hide modal if already shown
+            } else {
+                modal.style.display = "block"; // Show modal if it's hidden
+            }
+        }
+
+        // Close modal if clicked outside
+        window.onclick = function(event) {
+            const modal = document.getElementById("addModal");
+            if (event.target === modal) {
+                modal.style.display = "none"; // Close modal if clicked outside
+            }
         }
     </script>
 </body>
